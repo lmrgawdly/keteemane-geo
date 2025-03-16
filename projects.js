@@ -13,8 +13,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalProjectImage = document.getElementById('modal-project-image');
     const modalProjectTitle = document.getElementById('modal-project-title');
     const closeBtn = document.querySelector('.close-btn');
-    const prevBtnModal = document.querySelector('.prev-btn-modal');
-    const nextBtnModal = document.querySelector('.next-btn-modal');
+    const prevBtnModal = document.querySelector('.prev-btn');
+    const nextBtnModal = document.querySelector('.next-btn');
 
     let currentProjectIndex = 0;
 
