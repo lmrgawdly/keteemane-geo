@@ -76,23 +76,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // Simplified and robust modal functionality
     console.log('Projects script initializing');
 
-    // Select elements with precise selectors
-    const projectTrigger = document.querySelector('.project-placeholder');
-    const projectsModal = document.getElementById('projects-modal');
-    const modalProjectImage = document.getElementById('modal-project-image');
-    const modalProjectTitle = document.getElementById('modal-project-title');
-    const closeBtn = document.querySelector('.close-btn');
-    const prevBtn = document.querySelector('.prev-btn');
-    const nextBtn = document.querySelector('.next-btn');
-
-    // Comprehensive error checking
-    if (!projectTrigger) console.error('Project trigger not found');
-    if (!projectsModal) console.error('Projects modal not found');
-    if (!modalProjectImage) console.error('Modal project image not found');
-    if (!modalProjectTitle) console.error('Modal project title not found');
-    if (!closeBtn) console.error('Close button not found');
-    if (!prevBtn) console.error('Previous button not found');
-    if (!nextBtn) console.error('Next button not found');
+    // Detailed logging of element selection
+    console.log('Project Trigger:', projectPlaceholder);
+    console.log('Projects Modal:', projectsModal);
+    console.log('Modal Project Image:', modalProjectImage);
+    console.log('Modal Project Title:', modalProjectTitle);
+    console.log('Close Button:', closeBtn);
+    console.log('Previous Button:', prevBtnModal);
+    console.log('Next Button:', nextBtnModal);
 
     // Project images array
     const projects = [
@@ -121,16 +112,23 @@ document.addEventListener('DOMContentLoaded', () => {
         // Ensure index is within bounds
         currentProjectIndexModal = (index + projects.length) % projects.length;
         
-        // Update modal content with safety checks
+        // Update modal content with detailed logging
         const project = projects[currentProjectIndexModal];
+        
+        console.log('Attempting to show project:', project);
         
         if (modalProjectImage) {
             modalProjectImage.src = project.image;
             console.log(`Setting image to: ${project.image}`);
+        } else {
+            console.error('Modal project image element not found');
         }
         
         if (modalProjectTitle) {
             modalProjectTitle.textContent = project.title;
+            console.log(`Setting title to: ${project.title}`);
+        } else {
+            console.error('Modal project title element not found');
         }
     }
 
@@ -146,6 +144,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (projectsModal) {
             projectsModal.style.display = 'flex';
             console.log('Modal displayed');
+        } else {
+            console.error('Modal element not found');
         }
     }
 
@@ -160,33 +160,51 @@ document.addEventListener('DOMContentLoaded', () => {
         showProject(currentProjectIndexModal);
     }
 
-    // Attach event listeners with safety checks
-    if (projectTrigger) {
-        projectTrigger.addEventListener('click', (event) => {
+    // Attach event listeners with extensive logging
+    if (projectPlaceholder) {
+        projectPlaceholder.addEventListener('click', (event) => {
             console.log('Project trigger clicked');
             event.stopPropagation();
             openProjectsModal();
         });
+    } else {
+        console.error('Could not attach click event to project trigger');
     }
 
     if (closeBtn) {
         closeBtn.addEventListener('click', () => {
-            if (projectsModal) projectsModal.style.display = 'none';
+            console.log('Close button clicked');
+            if (projectsModal) {
+                projectsModal.style.display = 'none';
+            }
         });
+    } else {
+        console.error('Close button not found');
     }
 
-    if (prevBtn) {
-        prevBtn.addEventListener('click', prevProject);
+    if (prevBtnModal) {
+        prevBtnModal.addEventListener('click', () => {
+            console.log('Previous button clicked');
+            prevProject();
+        });
+    } else {
+        console.error('Previous button not found');
     }
 
-    if (nextBtn) {
-        nextBtn.addEventListener('click', nextProject);
+    if (nextBtnModal) {
+        nextBtnModal.addEventListener('click', () => {
+            console.log('Next button clicked');
+            nextProject();
+        });
+    } else {
+        console.error('Next button not found');
     }
 
     // Close modal when clicking outside
     if (projectsModal) {
         projectsModal.addEventListener('click', (event) => {
             if (event.target === projectsModal) {
+                console.log('Clicked outside modal');
                 projectsModal.style.display = 'none';
             }
         });
