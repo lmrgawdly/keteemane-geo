@@ -143,8 +143,8 @@ body, html {
     transform: scale(1.1);
 }
 
-/* Modal Styles */
-.modal {
+/* Projects Modal Styles */
+#projects-modal {
     display: none;
     position: fixed;
     z-index: 1000;
@@ -154,35 +154,94 @@ body, html {
     height: 100%;
     overflow: auto;
     background-color: rgba(0,0,0,0.9);
+    align-items: center;
+    justify-content: center;
 }
 
-.modal-content {
+#projects-modal .modal-content {
     position: relative;
-    background-color: #000;
-    margin: 5% auto;
-    padding: 20px;
+    background-color: #1a1a2e;
     border: 2px solid #00ffff;
-    width: 80%;
-    max-width: 900px;
+    border-radius: 10px;
+    max-width: 90%;
+    max-height: 80%;
+    width: auto;
+    padding: 20px;
     text-align: center;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
 }
 
-.modal-content img {
+.modal-navigation {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.modal-image-container {
+    max-width: 80vw;
+    max-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#modal-project-image {
     max-width: 100%;
-    max-height: 80vh;
+    max-height: 70vh;
     object-fit: contain;
+    border-radius: 5px;
 }
 
-.close-btn {
+.modal-navigation .prev-btn,
+.modal-navigation .next-btn {
+    background-color: rgba(0, 255, 255, 0.2);
     color: #00ffff;
-    float: right;
-    font-size: 35px;
-    font-weight: bold;
+    border: none;
+    font-size: 2rem;
     cursor: pointer;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
 }
 
-.close-btn:hover {
-    color: #fff;
+.modal-navigation .prev-btn:hover,
+.modal-navigation .next-btn:hover {
+    background-color: rgba(0, 255, 255, 0.4);
+}
+
+#modal-project-title {
+    color: #00ffff;
+    margin-top: 15px;
+    font-size: 1.2rem;
+}
+
+/* Project Placeholder Styles */
+.project-showcase {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.project-item {
+    background-color: rgba(0, 255, 255, 0.1);
+    border: 2px solid #00ffff;
+    border-radius: 10px;
+    padding: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.project-placeholder h3 {
+    color: #00ffff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.project-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
 }
 
 /* Add mobile-specific responsive design for project showcase */

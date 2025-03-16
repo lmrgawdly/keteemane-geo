@@ -15,44 +15,27 @@
         </div>
         <div class="project-showcase">
             <div class="project-grid">
-                <div class="project-item active" data-project="A1" data-title="Land Use Analysis">
+                <div class="project-item">
                     <div class="project-placeholder">
-                        <h3>Land Use Analysis</h3>
+                        <h3>Projects</h3>
                     </div>
-                    <img src="projects/A1.jpg" alt="Land Use Analysis Project">
                 </div>
-                <div class="project-item" data-project="BB" data-title="Cartography & Analysis">
-                    <div class="project-placeholder">
-                        <h3>Cartography & Analysis</h3>
-                    </div>
-                    <img src="projects/BB.jpg" alt="Cartography & Analysis Project">
-                </div>
-                <div class="project-item" data-project="CC" data-title="Object Classification & Scripting">
-                    <div class="project-placeholder">
-                        <h3>Object Classification & Scripting</h3>
-                    </div>
-                    <img src="projects/CC.jpg" alt="Object Classification & Scripting Project">
-                </div>
-                <div class="project-item" data-project="DD" data-title="Webmapping">
-                    <div class="project-placeholder">
-                        <h3>Webmapping</h3>
-                    </div>
-                    <img src="projects/DD.jpg" alt="Webmapping Project">
-                </div>
-            </div>
-            <div class="project-nav">
-                <button class="nav-btn prev-btn">◀</button>
-                <button class="nav-btn next-btn">▶</button>
             </div>
         </div>
-    </div>
 
-    <!-- Project Modal -->
-    <div id="projectModal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn">&times;</span>
-            <h2 id="modalProjectTitle"></h2>
-            <img id="modalProjectImage" src="" alt="Project Image">
+        <!-- Projects Modal -->
+        <div id="projects-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn">&times;</span>
+                <div class="modal-navigation">
+                    <button class="prev-btn">&#10094;</button>
+                    <div class="modal-image-container">
+                        <img id="modal-project-image" src="" alt="Project Image">
+                    </div>
+                    <button class="next-btn">&#10095;</button>
+                </div>
+                <h3 id="modal-project-title">Project Title</h3>
+            </div>
         </div>
     </div>
 

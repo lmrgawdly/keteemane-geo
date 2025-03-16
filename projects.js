@@ -8,6 +8,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalTitle = document.getElementById('modal-title');
     const closeModalBtn = document.querySelector('.close-btn');
 
+    const projectPlaceholder = document.querySelector('.project-placeholder');
+    const projectsModal = document.getElementById('projects-modal');
+    const modalProjectImage = document.getElementById('modal-project-image');
+    const modalProjectTitle = document.getElementById('modal-project-title');
+    const closeBtn = document.querySelector('.close-btn');
+    const prevBtnModal = document.querySelector('.prev-btn-modal');
+    const nextBtnModal = document.querySelector('.next-btn-modal');
+
     let currentProjectIndex = 0;
 
     // Function to update active project and scroll
@@ -86,4 +94,69 @@ document.addEventListener('DOMContentLoaded', () => {
     setInterval(() => {
         updateActiveProject(currentProjectIndex + 1);
     }, 5000);
+
+    // Project images array
+    const projects = [
+        { 
+            title: 'Land Use Analysis', 
+            image: 'projects/A1.jpg' 
+        },
+        { 
+            title: 'Cartography & Analysis', 
+            image: 'projects/BB.jpg' 
+        },
+        { 
+            title: 'Object Classification & Scripting', 
+            image: 'projects/CC.jpg' 
+        },
+        { 
+            title: 'Webmapping', 
+            image: 'projects/DD.jpg' 
+        }
+    ];
+
+    let currentProjectIndexModal = 0;
+
+    // Open modal function
+    function openProjectsModal() {
+        showProject(currentProjectIndexModal);
+        projectsModal.style.display = 'flex';
+    }
+
+    // Show specific project
+    function showProject(index) {
+        currentProjectIndexModal = (index + projects.length) % projects.length;
+        const project = projects[currentProjectIndexModal];
+        
+        modalProjectImage.src = project.image;
+        modalProjectTitle.textContent = project.title;
+    }
+
+    // Navigation functions
+    function nextProject() {
+        currentProjectIndexModal = (currentProjectIndexModal + 1) % projects.length;
+        showProject(currentProjectIndexModal);
+    }
+
+    function prevProject() {
+        currentProjectIndexModal = (currentProjectIndexModal - 1 + projects.length) % projects.length;
+        showProject(currentProjectIndexModal);
+    }
+
+    // Event Listeners
+    projectPlaceholder.addEventListener('click', openProjectsModal);
+
+    closeBtn.addEventListener('click', () => {
+        projectsModal.style.display = 'none';
+    });
+
+    prevBtnModal.addEventListener('click', prevProject);
+    nextBtnModal.addEventListener('click', nextProject);
+
+    // Close modal when clicking outside
+    projectsModal.addEventListener('click', (event) => {
+        if (event.target === projectsModal) {
+            projectsModal.style.display = 'none';
+        }
+    });
 });
