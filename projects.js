@@ -148,7 +148,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Event Listeners
-    projectPlaceholder.addEventListener('click', openProjectsModal);
+    projectPlaceholder.addEventListener('click', (event) => {
+        event.stopPropagation(); // Prevent event from bubbling
+        openProjectsModal();
+    });
 
     closeBtn.addEventListener('click', () => {
         projectsModal.style.display = 'none';
