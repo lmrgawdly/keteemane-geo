@@ -188,32 +188,39 @@ body, html {
 /* Add mobile-specific responsive design for project showcase */
 @media screen and (max-width: 768px) {
     .project-showcase {
-        position: relative;
-        bottom: 10px;
         width: 100%;
-        overflow: hidden;
+        overflow: visible;
+        padding: 0 20px; /* Add padding to prevent cutting off edges */
     }
 
     .project-grid {
         display: flex;
         flex-wrap: nowrap;
-        justify-content: center;
+        justify-content: flex-start; /* Align to start to show all items */
         align-items: center;
-        overflow-x: auto;
+        overflow-x: scroll;
         scroll-snap-type: x mandatory;
         -webkit-overflow-scrolling: touch;
-        padding: 10px 0;
+        gap: 20px; /* Space between project items */
+        padding: 20px 0;
+        scrollbar-width: none; /* Hide scrollbar for Firefox */
+        -ms-overflow-style: none; /* Hide scrollbar for Internet Explorer and Edge */
+    }
+
+    .project-grid::-webkit-scrollbar {
+        display: none; /* Hide scrollbar for Chrome, Safari and Opera */
     }
 
     .project-item {
         flex: 0 0 auto;
-        width: 250px;
-        height: 180px;
-        margin: 0 10px;
+        width: calc(100vw - 60px); /* Full width minus padding */
+        max-width: 350px;
+        height: 250px;
+        margin-right: 20px;
         scroll-snap-align: center;
         opacity: 0.7;
         transition: all 0.3s ease;
-        transform: scale(0.9);
+        transform: scale(0.95);
     }
 
     .project-item.active {
