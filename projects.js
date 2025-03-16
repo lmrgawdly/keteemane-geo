@@ -102,6 +102,10 @@ document.addEventListener('DOMContentLoaded', () => {
         { 
             title: 'Webmapping', 
             image: 'projects/DD.jpg' 
+        },
+        { 
+            title: 'GIS Project 3', 
+            image: 'projects/Picture3.jpg' 
         }
     ];
 
