@@ -73,66 +73,26 @@ document.addEventListener('DOMContentLoaded', () => {
         updateActiveProject(currentProjectIndex + 1);
     });
 
-    // Simplified Modal Functionality
+    // Simplified and robust modal functionality
+    console.log('Projects script initializing');
+
+    // Select elements with precise selectors
     const projectTrigger = document.querySelector('.project-placeholder');
     const projectsModal = document.getElementById('projects-modal');
-    
-    // Fallback alert if elements are not found
-    if (!projectTrigger) {
-        alert('Project trigger not found! Check your HTML.');
-        return;
-    }
-    
-    if (!projectsModal) {
-        alert('Projects modal not found! Check your HTML.');
-        return;
-    }
+    const modalProjectImage = document.getElementById('modal-project-image');
+    const modalProjectTitle = document.getElementById('modal-project-title');
+    const closeBtn = document.querySelector('.close-btn');
+    const prevBtn = document.querySelector('.prev-btn');
+    const nextBtn = document.querySelector('.next-btn');
 
-    // Simple modal toggle function
-    function toggleModal() {
-        alert('Modal toggle function called!');
-        
-        if (projectsModal.style.display === 'flex') {
-            projectsModal.style.display = 'none';
-        } else {
-            projectsModal.style.display = 'flex';
-        }
-    }
-
-    // Add click event listener with multiple fallback methods
-    projectTrigger.onclick = toggleModal;
-    projectTrigger.addEventListener('click', toggleModal);
-    
-    // Optional: Add global click event as a fallback
-    document.addEventListener('click', function(event) {
-        if (event.target === projectTrigger) {
-            toggleModal();
-        }
-    });
-
-    // Mobile-friendly project showcase interaction
-    function setupMobileProjectShowcase() {
-        if (window.innerWidth <= 768) {
-            // Start with the first project (Land use & analysis)
-            updateActiveProject(0);
-
-            // Enable horizontal scrolling with snap
-            projectGrid.style.overflowX = 'scroll';
-            projectGrid.style.scrollSnapType = 'x mandatory';
-            
-            // Debugging
-            console.log('Mobile project showcase setup');
-        }
-    }
-
-    // Initial setup and responsive adjustments
-    setupMobileProjectShowcase();
-    window.addEventListener('resize', setupMobileProjectShowcase);
-
-    // Optional: Auto-cycle projects every 5 seconds
-    setInterval(() => {
-        updateActiveProject(currentProjectIndex + 1);
-    }, 5000);
+    // Comprehensive error checking
+    if (!projectTrigger) console.error('Project trigger not found');
+    if (!projectsModal) console.error('Projects modal not found');
+    if (!modalProjectImage) console.error('Modal project image not found');
+    if (!modalProjectTitle) console.error('Modal project title not found');
+    if (!closeBtn) console.error('Close button not found');
+    if (!prevBtn) console.error('Previous button not found');
+    if (!nextBtn) console.error('Next button not found');
 
     // Project images array
     const projects = [
@@ -161,30 +121,31 @@ document.addEventListener('DOMContentLoaded', () => {
         // Ensure index is within bounds
         currentProjectIndexModal = (index + projects.length) % projects.length;
         
-        // Update modal content
+        // Update modal content with safety checks
         const project = projects[currentProjectIndexModal];
-        modalProjectImage.src = project.image;
-        modalProjectTitle.textContent = project.title;
         
-        // Debugging
-        console.log(`Showing project: ${project.title}, Image: ${project.image}`);
+        if (modalProjectImage) {
+            modalProjectImage.src = project.image;
+            console.log(`Setting image to: ${project.image}`);
+        }
+        
+        if (modalProjectTitle) {
+            modalProjectTitle.textContent = project.title;
+        }
     }
 
     // Open modal function
     function openProjectsModal() {
-        // Debugging
-        console.log('Attempting to open projects modal');
+        console.log('Attempting to open modal');
         
-        // Start with first project (Land Use Analysis)
+        // Start with first project
         currentProjectIndexModal = 0;
         showProject(currentProjectIndexModal);
         
-        // Ensure modal is displayed
+        // Safely display modal
         if (projectsModal) {
             projectsModal.style.display = 'flex';
-            console.log('Modal should now be visible');
-        } else {
-            console.error('Cannot open modal - element not found');
+            console.log('Modal displayed');
         }
     }
 
@@ -199,10 +160,10 @@ document.addEventListener('DOMContentLoaded', () => {
         showProject(currentProjectIndexModal);
     }
 
-    // Attach event listeners with additional error checking
-    if (projectPlaceholder) {
-        projectPlaceholder.addEventListener('click', (event) => {
-            console.log('Project placeholder clicked');
+    // Attach event listeners with safety checks
+    if (projectTrigger) {
+        projectTrigger.addEventListener('click', (event) => {
+            console.log('Project trigger clicked');
             event.stopPropagation();
             openProjectsModal();
         });
@@ -214,12 +175,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    if (prevBtnModal) {
-        prevBtnModal.addEventListener('click', prevProject);
+    if (prevBtn) {
+        prevBtn.addEventListener('click', prevProject);
     }
 
-    if (nextBtnModal) {
-        nextBtnModal.addEventListener('click', nextProject);
+    if (nextBtn) {
+        nextBtn.addEventListener('click', nextProject);
     }
 
     // Close modal when clicking outside
@@ -231,6 +192,29 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Additional debugging to verify script execution
-    console.log('Projects script event listeners set up');
+    // Mobile-friendly project showcase interaction
+    function setupMobileProjectShowcase() {
+        if (window.innerWidth <= 768) {
+            // Start with the first project (Land use & analysis)
+            updateActiveProject(0);
+
+            // Enable horizontal scrolling with snap
+            projectGrid.style.overflowX = 'scroll';
+            projectGrid.style.scrollSnapType = 'x mandatory';
+            
+            // Debugging
+            console.log('Mobile project showcase setup');
+        }
+    }
+
+    // Initial setup and responsive adjustments
+    setupMobileProjectShowcase();
+    window.addEventListener('resize', setupMobileProjectShowcase);
+
+    // Optional: Auto-cycle projects every 5 seconds
+    setInterval(() => {
+        updateActiveProject(currentProjectIndex + 1);
+    }, 5000);
+
+    console.log('Projects script setup complete');
 });
