@@ -1,4 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Debugging: Log when the script is loaded
+    console.log('Projects script loaded');
+
     const projectGrid = document.querySelector('.project-grid');
     const projectItems = document.querySelectorAll('.project-item');
     const prevBtn = document.querySelector('.prev-btn');
@@ -15,6 +18,23 @@ document.addEventListener('DOMContentLoaded', () => {
     const closeBtn = document.querySelector('.close-btn');
     const prevBtnModal = document.querySelector('.prev-btn');
     const nextBtnModal = document.querySelector('.next-btn');
+
+    // Debugging: Check if elements exist
+    if (!projectGrid) console.error('Project grid not found');
+    if (!projectItems) console.error('Project items not found');
+    if (!prevBtn) console.error('Previous button not found');
+    if (!nextBtn) console.error('Next button not found');
+    if (!modal) console.error('Modal not found');
+    if (!modalImage) console.error('Modal image not found');
+    if (!modalTitle) console.error('Modal title not found');
+    if (!closeModalBtn) console.error('Close modal button not found');
+    if (!projectPlaceholder) console.error('Project placeholder not found');
+    if (!projectsModal) console.error('Projects modal not found');
+    if (!modalProjectImage) console.error('Modal project image not found');
+    if (!modalProjectTitle) console.error('Modal project title not found');
+    if (!closeBtn) console.error('Close button not found');
+    if (!prevBtnModal) console.error('Previous button modal not found');
+    if (!nextBtnModal) console.error('Next button modal not found');
 
     let currentProjectIndex = 0;
 
@@ -39,6 +59,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 inline: 'center'
             });
         }
+        
+        // Debugging
+        console.log(`Updated active project to index: ${currentProjectIndex}`);
     }
 
     // Navigation button event listeners
@@ -59,18 +82,27 @@ document.addEventListener('DOMContentLoaded', () => {
             modalImage.src = imgSrc;
             modalTitle.textContent = title;
             modal.style.display = 'flex';
+            
+            // Debugging
+            console.log(`Modal opened with image: ${imgSrc} and title: ${title}`);
         });
     });
 
     // Close modal
     closeModalBtn.addEventListener('click', () => {
         modal.style.display = 'none';
+        
+        // Debugging
+        console.log('Modal closed');
     });
 
     // Close modal when clicking outside
     modal.addEventListener('click', (event) => {
         if (event.target === modal) {
             modal.style.display = 'none';
+            
+            // Debugging
+            console.log('Modal closed by clicking outside');
         }
     });
 
@@ -83,6 +115,9 @@ document.addEventListener('DOMContentLoaded', () => {
             // Enable horizontal scrolling with snap
             projectGrid.style.overflowX = 'scroll';
             projectGrid.style.scrollSnapType = 'x mandatory';
+            
+            // Debugging
+            console.log('Mobile project showcase setup');
         }
     }
 
@@ -126,14 +161,27 @@ document.addEventListener('DOMContentLoaded', () => {
         const project = projects[currentProjectIndexModal];
         modalProjectImage.src = project.image;
         modalProjectTitle.textContent = project.title;
+        
+        // Debugging
+        console.log(`Showing project: ${project.title}, Image: ${project.image}`);
     }
 
     // Open modal function
     function openProjectsModal() {
+        // Debugging
+        console.log('Attempting to open projects modal');
+        
         // Start with first project (Land Use Analysis)
         currentProjectIndexModal = 0;
         showProject(currentProjectIndexModal);
-        projectsModal.style.display = 'flex';
+        
+        // Ensure modal is displayed
+        if (projectsModal) {
+            projectsModal.style.display = 'flex';
+            console.log('Modal should now be visible');
+        } else {
+            console.error('Cannot open modal - element not found');
+        }
     }
 
     // Navigation functions
@@ -147,23 +195,38 @@ document.addEventListener('DOMContentLoaded', () => {
         showProject(currentProjectIndexModal);
     }
 
-    // Event Listeners
-    projectPlaceholder.addEventListener('click', (event) => {
-        event.stopPropagation(); // Prevent event from bubbling
-        openProjectsModal();
-    });
+    // Attach event listeners with additional error checking
+    if (projectPlaceholder) {
+        projectPlaceholder.addEventListener('click', (event) => {
+            console.log('Project placeholder clicked');
+            event.stopPropagation();
+            openProjectsModal();
+        });
+    }
 
-    closeBtn.addEventListener('click', () => {
-        projectsModal.style.display = 'none';
-    });
+    if (closeBtn) {
+        closeBtn.addEventListener('click', () => {
+            if (projectsModal) projectsModal.style.display = 'none';
+        });
+    }
 
-    prevBtnModal.addEventListener('click', prevProject);
-    nextBtnModal.addEventListener('click', nextProject);
+    if (prevBtnModal) {
+        prevBtnModal.addEventListener('click', prevProject);
+    }
+
+    if (nextBtnModal) {
+        nextBtnModal.addEventListener('click', nextProject);
+    }
 
     // Close modal when clicking outside
-    projectsModal.addEventListener('click', (event) => {
-        if (event.target === projectsModal) {
-            projectsModal.style.display = 'none';
-        }
-    });
+    if (projectsModal) {
+        projectsModal.addEventListener('click', (event) => {
+            if (event.target === projectsModal) {
+                projectsModal.style.display = 'none';
+            }
+        });
+    }
+
+    // Additional debugging to verify script execution
+    console.log('Projects script event listeners set up');
 });
