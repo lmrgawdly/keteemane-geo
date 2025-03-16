@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keteemane GEO</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <canvas id="globeCanvas"></canvas>
+        <div class="overlay">
+            <h1>Keteemane GEO</h1>
+            <p>GIS Portfolio</p>
+        </div>
+        <div class="project-showcase">
+            <div class="project-grid">
+                <div class="project-item active" data-project="A1" data-title="Land Use Analysis">
+                    <div class="project-placeholder">
+                        <h3>Land Use Analysis</h3>
+                    </div>
+                    <img src="projects/A1.jpg" alt="Land Use Analysis Project">
+                </div>
+                <div class="project-item" data-project="BB" data-title="Cartography & Analysis">
+                    <div class="project-placeholder">
+                        <h3>Cartography & Analysis</h3>
+                    </div>
+                    <img src="projects/BB.jpg" alt="Cartography & Analysis Project">
+                </div>
+                <div class="project-item" data-project="CC" data-title="Object Classification & Scripting">
+                    <div class="project-placeholder">
+                        <h3>Object Classification & Scripting</h3>
+                    </div>
+                    <img src="projects/CC.jpg" alt="Object Classification & Scripting Project">
+                </div>
+                <div class="project-item" data-project="DD" data-title="Webmapping">
+                    <div class="project-placeholder">
+                        <h3>Webmapping</h3>
+                    </div>
+                    <img src="projects/DD.jpg" alt="Webmapping Project">
+                </div>
+            </div>
+            <div class="project-nav">
+                <button class="nav-btn prev-btn">◀</button>
+                <button class="nav-btn next-btn">▶</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Project Modal -->
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2 id="modalProjectTitle"></h2>
+            <img id="modalProjectImage" src="" alt="Project Image">
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="globe.js"></script>
+    <script src="projects.js"></script>
+</body>
+</html>
