@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log('Previous Button:', prevBtnModal);
     console.log('Next Button:', nextBtnModal);
 
-    // Project images array
+    // Project images array with new images
     const projects = [
         { 
             title: 'Land Use Analysis', 
@@ -102,6 +102,26 @@ document.addEventListener('DOMContentLoaded', () => {
         { 
             title: 'Webmapping', 
             image: 'projects/DD.jpg' 
+        },
+        { 
+            title: 'GIS Project 1', 
+            image: 'projects/Picture1.jpg' 
+        },
+        { 
+            title: 'GIS Project 2', 
+            image: 'projects/Picture2.jpg' 
+        },
+        { 
+            title: 'GIS Project 3', 
+            image: 'projects/Picture3.jpg' 
+        },
+        { 
+            title: 'GIS Project 4', 
+            image: 'projects/Picture4.jpg' 
+        },
+        { 
+            title: 'GIS Project 5', 
+            image: 'projects/Picture5.jpg' 
         }
     ];
 
