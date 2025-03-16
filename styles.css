@@ -184,3 +184,46 @@ body, html {
 .close-btn:hover {
     color: #fff;
 }
+
+/* Add mobile-specific responsive design for project showcase */
+@media screen and (max-width: 768px) {
+    .project-showcase {
+        position: relative;
+        bottom: 10px;
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .project-grid {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        padding: 10px 0;
+    }
+
+    .project-item {
+        flex: 0 0 auto;
+        width: 250px;
+        height: 180px;
+        margin: 0 10px;
+        scroll-snap-align: center;
+        opacity: 0.7;
+        transition: all 0.3s ease;
+        transform: scale(0.9);
+    }
+
+    .project-item.active {
+        opacity: 1;
+        transform: scale(1);
+        border-color: #00ffff;
+        box-shadow: 0 0 15px rgba(0, 255, 255, 0.7);
+    }
+
+    .project-nav {
+        display: none; /* Hide navigation buttons on mobile */
+    }
+}

@@ -1,5 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const projectGrid = document.querySelector('.project-grid');
     const projectItems = document.querySelectorAll('.project-item');
+    const modal = document.getElementById('project-modal');
+    const modalImage = document.getElementById('modal-image');
+    const modalTitle = document.getElementById('modal-title');
+    const closeModalBtn = document.querySelector('.close-btn');
     const prevBtn = document.querySelector('.prev-btn');
     const nextBtn = document.querySelector('.next-btn');
     
@@ -7,9 +12,9 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentProjectIndex = 0;
 
     // Modal elements
-    const modal = document.getElementById('projectModal');
-    const modalImage = document.getElementById('modalProjectImage');
-    const modalTitle = document.getElementById('modalProjectTitle');
+    const projectModal = document.getElementById('projectModal');
+    const modalProjectImage = document.getElementById('modalProjectImage');
+    const modalProjectTitle = document.getElementById('modalProjectTitle');
     const closeBtn = document.querySelector('.close-btn');
 
     function updateActiveProject(index) {
@@ -40,14 +45,14 @@ document.addEventListener('DOMContentLoaded', () => {
         const imageSrc = projectItem.querySelector('img').src;
         const projectTitle = projectItem.getAttribute('data-title');
 
-        modalImage.src = imageSrc;
-        modalTitle.textContent = projectTitle;
-        modal.style.display = 'block';
+        modalProjectImage.src = imageSrc;
+        modalProjectTitle.textContent = projectTitle;
+        projectModal.style.display = 'block';
     }
 
     // Close modal function
     function closeModal() {
-        modal.style.display = 'none';
+        projectModal.style.display = 'none';
     }
 
     // Add event listeners to navigation buttons
@@ -65,11 +70,67 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Close modal when clicking outside of it
     window.addEventListener('click', (event) => {
-        if (event.target === modal) {
+        if (event.target === projectModal) {
             closeModal();
         }
     });
 
     // Optional: Auto-cycle projects every 5 seconds
     setInterval(nextProject, 5000);
+
+    // Mobile-friendly project showcase interaction
+    function setupMobileProjectShowcase() {
+        if (window.innerWidth <= 768) {
+            // Enable horizontal scrolling with snap
+            projectGrid.style.overflowX = 'scroll';
+            projectGrid.style.scrollSnapType = 'x mandatory';
+
+            // Detect current visible project
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Remove active class from all items
+                        projectItems.forEach(item => item.classList.remove('active'));
+                        
+                        // Add active class to the intersecting item
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, {
+                root: projectGrid,
+                threshold: 0.7 // Trigger when 70% of the item is visible
+            });
+
+            // Observe each project item
+            projectItems.forEach(item => observer.observe(item));
+        }
+    }
+
+    // Modal functionality
+    projectItems.forEach(item => {
+        item.addEventListener('click', () => {
+            const imgSrc = item.querySelector('img').src;
+            const title = item.querySelector('.project-title').textContent;
+
+            modalImage.src = imgSrc;
+            modalTitle.textContent = title;
+            modal.style.display = 'flex';
+        });
+    });
+
+    // Close modal
+    closeModalBtn.addEventListener('click', () => {
+        modal.style.display = 'none';
+    });
+
+    // Close modal when clicking outside
+    modal.addEventListener('click', (event) => {
+        if (event.target === modal) {
+            modal.style.display = 'none';
+        }
+    });
+
+    // Initial setup and responsive adjustments
+    setupMobileProjectShowcase();
+    window.addEventListener('resize', setupMobileProjectShowcase);
 });
