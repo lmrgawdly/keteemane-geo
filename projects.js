@@ -117,19 +117,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let currentProjectIndexModal = 0;
 
-    // Open modal function
-    function openProjectsModal() {
-        showProject(currentProjectIndexModal);
-        projectsModal.style.display = 'flex';
-    }
-
-    // Show specific project
+    // Function to show a specific project
     function showProject(index) {
+        // Ensure index is within bounds
         currentProjectIndexModal = (index + projects.length) % projects.length;
-        const project = projects[currentProjectIndexModal];
         
+        // Update modal content
+        const project = projects[currentProjectIndexModal];
         modalProjectImage.src = project.image;
         modalProjectTitle.textContent = project.title;
+    }
+
+    // Open modal function
+    function openProjectsModal() {
+        // Start with first project (Land Use Analysis)
+        currentProjectIndexModal = 0;
+        showProject(currentProjectIndexModal);
+        projectsModal.style.display = 'flex';
     }
 
     // Navigation functions
