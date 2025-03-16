@@ -73,36 +73,40 @@ document.addEventListener('DOMContentLoaded', () => {
         updateActiveProject(currentProjectIndex + 1);
     });
 
-    // Modal functionality
-    projectItems.forEach((item, index) => {
-        item.addEventListener('click', () => {
-            const imgSrc = item.querySelector('img').src;
-            const title = item.querySelector('.project-title').textContent;
+    // Simplified Modal Functionality
+    const projectTrigger = document.querySelector('.project-placeholder');
+    const projectsModal = document.getElementById('projects-modal');
+    
+    // Fallback alert if elements are not found
+    if (!projectTrigger) {
+        alert('Project trigger not found! Check your HTML.');
+        return;
+    }
+    
+    if (!projectsModal) {
+        alert('Projects modal not found! Check your HTML.');
+        return;
+    }
 
-            modalImage.src = imgSrc;
-            modalTitle.textContent = title;
-            modal.style.display = 'flex';
-            
-            // Debugging
-            console.log(`Modal opened with image: ${imgSrc} and title: ${title}`);
-        });
-    });
-
-    // Close modal
-    closeModalBtn.addEventListener('click', () => {
-        modal.style.display = 'none';
+    // Simple modal toggle function
+    function toggleModal() {
+        alert('Modal toggle function called!');
         
-        // Debugging
-        console.log('Modal closed');
-    });
+        if (projectsModal.style.display === 'flex') {
+            projectsModal.style.display = 'none';
+        } else {
+            projectsModal.style.display = 'flex';
+        }
+    }
 
-    // Close modal when clicking outside
-    modal.addEventListener('click', (event) => {
-        if (event.target === modal) {
-            modal.style.display = 'none';
-            
-            // Debugging
-            console.log('Modal closed by clicking outside');
+    // Add click event listener with multiple fallback methods
+    projectTrigger.onclick = toggleModal;
+    projectTrigger.addEventListener('click', toggleModal);
+    
+    // Optional: Add global click event as a fallback
+    document.addEventListener('click', function(event) {
+        if (event.target === projectTrigger) {
+            toggleModal();
         }
     });
 
