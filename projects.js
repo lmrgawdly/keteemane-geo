@@ -104,8 +104,8 @@ document.addEventListener('DOMContentLoaded', () => {
             image: 'projects/DD.jpg' 
         },
         { 
-            title: 'GIS Project 3', 
-            image: 'projects/Picture3.jpg' 
+            title: 'AS-BUILTS', 
+            image: 'projects/page5.jpg' 
         }
     ];
 
