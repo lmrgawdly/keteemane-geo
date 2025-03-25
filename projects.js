@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log('Previous Button:', prevBtnModal);
     console.log('Next Button:', nextBtnModal);
 
-    // Project images array with new Population Mapping image
+    // Project images array with new Change Detection image
     const projects = [
         { 
             title: 'Land Use Analysis', 
@@ -106,6 +106,10 @@ document.addEventListener('DOMContentLoaded', () => {
         { 
             title: 'Population Mapping', 
             image: 'projects/EE.jpg' 
+        },
+        { 
+            title: 'Change Detection', 
+            image: 'projects/FF.jpg' 
         },
         { 
             title: 'As-Builts', 
