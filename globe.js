@@ -3,6 +3,13 @@ let rotationDirection = 1;
 let rotationAngle = 0;
 
 function init() {
+    // Check if THREE.js is loaded
+    if (typeof THREE === 'undefined') {
+        console.error('THREE.js is not loaded. Waiting for it to load...');
+        setTimeout(init, 100);
+        return;
+    }
+    
     // Add loading state to canvas
     const canvas = document.getElementById('globeCanvas');
     if (canvas) {
@@ -156,6 +163,8 @@ function animate() {
 
 // Handle window resizing
 function onWindowResize() {
+    if (!camera || !renderer) return;
+    
     camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
     renderer.setSize(window.innerWidth, window.innerHeight);

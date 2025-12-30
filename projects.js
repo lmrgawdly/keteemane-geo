@@ -2,11 +2,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Debugging: Log when the script is loaded
     console.log('Projects script loaded');
 
-    const projectGrid = document.querySelector('.project-grid');
-    const projectItems = document.querySelectorAll('.project-item');
-    const prevBtn = document.querySelector('.prev-btn');
-    const nextBtn = document.querySelector('.next-btn');
-    
     const projectPlaceholder = document.querySelector('.project-placeholder');
     const projectsModal = document.getElementById('projects-modal');
     const modalProjectImage = document.getElementById('modal-project-image');
@@ -15,8 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const prevBtnModal = document.querySelector('.prev-btn');
     const nextBtnModal = document.querySelector('.next-btn');
 
-    // Debugging: Check if elements exist (only log errors for missing critical elements)
-    if (!projectGrid) console.error('Project grid not found');
+    // Debugging: Check if critical elements exist
     if (!projectPlaceholder) console.error('Project placeholder not found');
     if (!projectsModal) console.error('Projects modal not found');
     if (!modalProjectImage) console.error('Modal project image not found');
@@ -25,54 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!prevBtnModal) console.error('Previous button modal not found');
     if (!nextBtnModal) console.error('Next button modal not found');
 
-    let currentProjectIndex = 0;
-
-    // Function to update active project and scroll
-    function updateActiveProject(index) {
-        // Ensure index is within bounds
-        currentProjectIndex = (index + projectItems.length) % projectItems.length;
-        
-        // Remove active class from all items
-        projectItems.forEach(item => {
-            item.classList.remove('active');
-        });
-
-        // Add active class to current item
-        projectItems[currentProjectIndex].classList.add('active');
-
-        // Scroll to the current project item
-        if (window.innerWidth <= 768) {
-            projectItems[currentProjectIndex].scrollIntoView({
-                behavior: 'smooth',
-                block: 'nearest',
-                inline: 'center'
-            });
-        }
-        
-        // Debugging
-        console.log(`Updated active project to index: ${currentProjectIndex}`);
-    }
-
-    // Navigation button event listeners
-    prevBtn.addEventListener('click', () => {
-        updateActiveProject(currentProjectIndex - 1);
-    });
-
-    nextBtn.addEventListener('click', () => {
-        updateActiveProject(currentProjectIndex + 1);
-    });
-
-    // Simplified and robust modal functionality
-    console.log('Projects script initializing');
-
-    // Detailed logging of element selection
-    console.log('Project Trigger:', projectPlaceholder);
-    console.log('Projects Modal:', projectsModal);
-    console.log('Modal Project Image:', modalProjectImage);
-    console.log('Modal Project Title:', modalProjectTitle);
-    console.log('Close Button:', closeBtn);
-    console.log('Previous Button:', prevBtnModal);
-    console.log('Next Button:', nextBtnModal);
+    let currentProjectIndexModal = 0;
 
     // Project images array with descriptions and metadata
     const projects = [
@@ -126,8 +73,6 @@ document.addEventListener('DOMContentLoaded', () => {
             year: '2023'
         }
     ];
-
-    let currentProjectIndexModal = 0;
 
     // Function to show a specific project
     function showProject(index) {
@@ -267,30 +212,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
-
-    // Mobile-friendly project showcase interaction
-    function setupMobileProjectShowcase() {
-        if (window.innerWidth <= 768) {
-            // Start with the first project (Land use & analysis)
-            updateActiveProject(0);
-
-            // Enable horizontal scrolling with snap
-            projectGrid.style.overflowX = 'scroll';
-            projectGrid.style.scrollSnapType = 'x mandatory';
-            
-            // Debugging
-            console.log('Mobile project showcase setup');
-        }
-    }
-
-    // Initial setup and responsive adjustments
-    setupMobileProjectShowcase();
-    window.addEventListener('resize', setupMobileProjectShowcase);
-
-    // Optional: Auto-cycle projects every 5 seconds
-    setInterval(() => {
-        updateActiveProject(currentProjectIndex + 1);
-    }, 5000);
 
     console.log('Projects script setup complete');
 });
