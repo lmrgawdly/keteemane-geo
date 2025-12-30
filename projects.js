@@ -85,35 +85,56 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log('Previous Button:', prevBtnModal);
     console.log('Next Button:', nextBtnModal);
 
-    // Project images array with new Change Detection image
+    // Project images array with descriptions and metadata
     const projects = [
         { 
             title: 'Land Use Analysis', 
-            image: 'projects/A1.jpg' 
+            image: 'projects/A1.jpg',
+            description: 'Comprehensive land use classification using remote sensing and GIS analysis techniques.',
+            technologies: ['ArcGIS', 'Remote Sensing', 'Spatial Analysis'],
+            year: '2023'
         },
         { 
             title: 'Cartography & Analysis', 
-            image: 'projects/BB.jpg' 
+            image: 'projects/BB.jpg',
+            description: 'Professional cartographic design with advanced spatial data visualization.',
+            technologies: ['QGIS', 'Cartography', 'Data Visualization'],
+            year: '2023'
         },
         { 
             title: 'Object Classification & Scripting', 
-            image: 'projects/CC.jpg' 
+            image: 'projects/CC.jpg',
+            description: 'Automated object detection using machine learning and custom GIS scripting.',
+            technologies: ['Python', 'TensorFlow', 'ArcPy'],
+            year: '2024'
         },
         { 
             title: 'Webmapping', 
-            image: 'projects/DD.jpg' 
+            image: 'projects/DD.jpg',
+            description: 'Interactive web mapping applications with real-time data integration.',
+            technologies: ['Leaflet', 'JavaScript', 'Web GIS'],
+            year: '2024'
         },
         { 
             title: 'Population Mapping', 
-            image: 'projects/EE.jpg' 
+            image: 'projects/EE.jpg',
+            description: 'Demographic analysis and population density mapping with statistical modeling.',
+            technologies: ['Spatial Statistics', 'R', 'GIS Modeling'],
+            year: '2024'
         },
         { 
             title: 'Change Detection', 
-            image: 'projects/FF.jpg' 
+            image: 'projects/FF.jpg',
+            description: 'Temporal analysis of environmental changes using satellite imagery.',
+            technologies: ['Change Detection', 'Satellite Imagery', 'Time Series Analysis'],
+            year: '2024'
         },
         { 
             title: 'As-Builts', 
-            image: 'projects/page5.jpg' 
+            image: 'projects/page5.jpg',
+            description: 'Precision as-built mapping and infrastructure documentation.',
+            technologies: ['Surveying', 'CAD Integration', 'Precision Mapping'],
+            year: '2023'
         }
     ];
 
@@ -129,9 +150,26 @@ document.addEventListener('DOMContentLoaded', () => {
         
         console.log('Attempting to show project:', project);
         
+        // Add loading state
         if (modalProjectImage) {
-            modalProjectImage.src = project.image;
-            console.log(`Setting image to: ${project.image}`);
+            modalProjectImage.classList.add('loading');
+            modalProjectImage.classList.remove('error');
+            
+            // Create new image to test loading
+            const testImage = new Image();
+            testImage.onload = function() {
+                modalProjectImage.src = project.image;
+                modalProjectImage.classList.remove('loading');
+                console.log(`Successfully loaded image: ${project.image}`);
+            };
+            testImage.onerror = function() {
+                modalProjectImage.classList.remove('loading');
+                modalProjectImage.classList.add('error');
+                console.error(`Failed to load image: ${project.image}`);
+                // Try to set a fallback or show error
+                modalProjectImage.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjMzMzIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0iI2ZmZiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkltYWdlIE5vdCBGb3VuZDwvdGV4dD48L3N2Zz4=';
+            };
+            testImage.src = project.image;
         } else {
             console.error('Modal project image element not found');
         }
@@ -141,6 +179,25 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log(`Setting title to: ${project.title}`);
         } else {
             console.error('Modal project title element not found');
+        }
+
+        // Update additional project information
+        const modalDescription = document.getElementById('modal-project-description');
+        const modalTechnologies = document.getElementById('modal-project-technologies');
+        const modalYear = document.getElementById('modal-project-year');
+
+        if (modalDescription) {
+            modalDescription.textContent = project.description;
+        }
+
+        if (modalTechnologies) {
+            modalTechnologies.innerHTML = project.technologies.map(tech => 
+                `<span class="tech-tag">${tech}</span>`
+            ).join('');
+        }
+
+        if (modalYear) {
+            modalYear.textContent = project.year;
         }
     }
 
