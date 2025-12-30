@@ -51,8 +51,8 @@ function init() {
     controls.autoRotate = true;
     controls.autoRotateSpeed = 0.5;
 
-    // Create globe with higher detail
-    const geometry = new THREE.SphereGeometry(1, 128, 128);
+    // Create globe with optimized detail for faster loading
+    const geometry = new THREE.SphereGeometry(1, 64, 64);
     const textureLoader = new THREE.TextureLoader();
     
     // Load the texture with better settings
@@ -127,16 +127,16 @@ function init() {
     directionalLight.shadow.mapSize.height = 2048;
     scene.add(directionalLight);
 
-    const pointLight = new THREE.PointLight(0x00ffff, 0.3, 10);
+    const pointLight = new THREE.PointLight(0xffffff, 0.3, 10);
     pointLight.position.set(-3, 2, 2);
     scene.add(pointLight);
 
-    // Add subtle atmospheric glow
+    // Add subtle atmospheric glow with white color
     const glowGeometry = new THREE.SphereGeometry(1.05, 32, 32);
     const glowMaterial = new THREE.MeshBasicMaterial({
-        color: 0x00ffff,
+        color: 0xffffff,
         transparent: true,
-        opacity: 0.1,
+        opacity: 0.05,
         side: THREE.BackSide
     });
     const glowMesh = new THREE.Mesh(glowGeometry, glowMaterial);

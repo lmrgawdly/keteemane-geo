@@ -6,11 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const projectItems = document.querySelectorAll('.project-item');
     const prevBtn = document.querySelector('.prev-btn');
     const nextBtn = document.querySelector('.next-btn');
-    const modal = document.getElementById('project-modal');
-    const modalImage = document.getElementById('modal-image');
-    const modalTitle = document.getElementById('modal-title');
-    const closeModalBtn = document.querySelector('.close-btn');
-
+    
     const projectPlaceholder = document.querySelector('.project-placeholder');
     const projectsModal = document.getElementById('projects-modal');
     const modalProjectImage = document.getElementById('modal-project-image');
@@ -19,15 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const prevBtnModal = document.querySelector('.prev-btn');
     const nextBtnModal = document.querySelector('.next-btn');
 
-    // Debugging: Check if elements exist
+    // Debugging: Check if elements exist (only log errors for missing critical elements)
     if (!projectGrid) console.error('Project grid not found');
-    if (!projectItems) console.error('Project items not found');
-    if (!prevBtn) console.error('Previous button not found');
-    if (!nextBtn) console.error('Next button not found');
-    if (!modal) console.error('Modal not found');
-    if (!modalImage) console.error('Modal image not found');
-    if (!modalTitle) console.error('Modal title not found');
-    if (!closeModalBtn) console.error('Close modal button not found');
     if (!projectPlaceholder) console.error('Project placeholder not found');
     if (!projectsModal) console.error('Projects modal not found');
     if (!modalProjectImage) console.error('Modal project image not found');
