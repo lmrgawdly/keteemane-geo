@@ -7,28 +7,28 @@ class SlideshowAnimation {
         this.slideInterval = 4000; // 4 seconds per slide
         this.slideInfo = {
             titles: [
-                'Spatial Analysis',
-                '2025 Analysis',
-                '2024 Mapping',
-                'Cartography',
-                '2022 Project',
-                'Data Processing',
-                'Recent Work',
+                'Pipe Surveying',
+                'DataInMotion Live GIS',
+                'Journal Report',
+                'Locating Utilities',
+                'Topo Shots',
+                'GNSS Setup',
+                'IoT Devices',
                 'Pipeline GIS',
                 'Field Operations',
-                'Mobile Mapping'
+                'ATV Surveys'
             ],
             descriptions: [
-                'Advanced GIS spatial analysis and mapping techniques',
-                'Latest GIS analysis projects and methodologies',
-                'Professional cartography and data visualization',
-                'Expert map design and spatial representation',
-                'Comprehensive GIS project management',
-                'Efficient data processing and analysis workflows',
-                'Recent GIS developments and innovations',
-                'Pipeline infrastructure mapping and analysis',
-                'Field operations and on-site GIS applications',
-                'Mobile mapping and real-time data collection'
+                'Taking shots of welds for a gas pipeline expansion project',
+                'datainmotion.ca live gis/micropython devices tutorials and development',
+                'Published a Journal Report on youth health and public spaces in Botswana - first entry paper after urban planning degree',
+                'Locating utilities (gas, oil, electric etc) for infrastructure projects',
+                'Taking topo shots that were used to determine and stake future pipe positions',
+                'Setting up GNSS to mark future well site boundaries and centers',
+                'Microcontroller experimentation for IoT devices and linking to static maps to make dynamic outputs',
+                'Locating and marking pipes to ensure the right pieces get on the ground - measuring and comparing to existing lists',
+                'ARGO operation while flagging well sites for field surveys',
+                'ATV and remote access to carry out surveys in challenging terrain'
             ]
         };
         

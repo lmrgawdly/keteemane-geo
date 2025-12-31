@@ -8,23 +8,30 @@
 </head>
 <body>
     <div class="container">
+        <canvas id="globeCanvas"></canvas>
+        
+        <!-- Terrain Background -->
+        <div class="terrain-background">
+            <img src="portfolio-images/cool.png" alt="QGIS Terrain" class="terrain-image">
+        </div>
+        
         <!-- Image Slideshow -->
         <div class="slideshow-container">
             <div class="slideshow">
-                <img src="portfolio-images/2023-02.jpg" alt="GIS Analysis 2023" class="slide active">
-                <img src="portfolio-images/2025-01.jpg" alt="GIS Work 2025" class="slide">
-                <img src="portfolio-images/2024-01.png" alt="GIS Work 2024" class="slide">
-                <img src="portfolio-images/2023-03.jpg" alt="GIS Mapping 2023" class="slide">
-                <img src="portfolio-images/2022-01.jpg" alt="GIS Project 2022" class="slide">
-                <img src="portfolio-images/2023-01.jpg" alt="GIS Data 2023" class="slide">
-                <img src="portfolio-images/2025-02.jpg" alt="GIS Work 2025" class="slide">
-                <img src="portfolio-images/pipe-info.jpg" alt="Pipeline Information" class="slide">
-                <img src="portfolio-images/argo-operation.jpg" alt="ARGO Operation" class="slide">
-                <img src="portfolio-images/utv-operation.jpg" alt="UTV Operation" class="slide">
+                <img src="portfolio-images/2024-01.png" alt="Pipe Surveying" class="slide active">
+                <img src="portfolio-images/2025-01.jpg" alt="DataInMotion Live GIS" class="slide">
+                <img src="portfolio-images/2024-02.jpg" alt="Journal Report" class="slide">
+                <img src="portfolio-images/2022-02.jpg" alt="Locating Utilities" class="slide">
+                <img src="portfolio-images/2022-01.jpg" alt="Topo Shots" class="slide">
+                <img src="portfolio-images/2023-01.jpg" alt="GNSS Setup" class="slide">
+                <img src="portfolio-images/2025-02.jpg" alt="IoT Devices" class="slide">
+                <img src="portfolio-images/pipe-info.jpg" alt="Pipeline GIS" class="slide">
+                <img src="portfolio-images/argo-operation.jpg" alt="Field Operations" class="slide">
+                <img src="portfolio-images/utv-operation.jpg" alt="ATV Surveys" class="slide">
             </div>
             <div class="slide-info">
-                <h3 id="slide-title">Spatial Analysis</h3>
-                <p id="slide-description">Advanced GIS spatial analysis and mapping techniques</p>
+                <h3 id="slide-title">Pipe Surveying</h3>
+                <p id="slide-description">Taking shots of welds for a gas pipeline expansion project</p>
             </div>
             <div class="slideshow-dots">
                 <span class="dot active" data-slide="0"></span>
@@ -66,26 +73,14 @@
                     <button class="next-btn">&#10095;</button>
                 </div>
                 <h3 id="modal-project-title">Land Use Analysis</h3>
-                <p id="modal-project-description">Comprehensive land use classification using remote sensing and GIS analysis techniques.</p>
-                <div class="project-meta">
-                    <div class="project-year">
-                        <span class="meta-label">Year:</span>
-                        <span id="modal-project-year">2023</span>
-                    </div>
-                    <div class="project-technologies">
-                        <span class="meta-label">Technologies:</span>
-                        <div id="modal-project-technologies">
-                            <span class="tech-tag">ArcGIS</span>
-                            <span class="tech-tag">Remote Sensing</span>
-                            <span class="tech-tag">Spatial Analysis</span>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
 
-    <script src="projects.js?v=5"></script>
-    <script src="slideshow-animation.js?v=5"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="globe.js"></script>
+    <script src="projects.js"></script>
+    <script src="slideshow-animation.js"></script>
 </body>
 </html>
