@@ -8,7 +8,23 @@
 </head>
 <body>
     <div class="container">
-        <canvas id="globeCanvas"></canvas>
+        <!-- Animated Background -->
+        <div class="animated-background">
+            <div class="image-slideshow">
+                <img src="portfolio-images/2025-01.jpg" alt="GIS Work 2025" class="slide-image active">
+                <img src="portfolio-images/2024-01.png" alt="GIS Work 2024" class="slide-image">
+                <img src="portfolio-images/2023-02.jpg" alt="GIS Analysis 2023" class="slide-image">
+                <img src="portfolio-images/2023-03.jpg" alt="GIS Mapping 2023" class="slide-image">
+                <img src="portfolio-images/2022-01.jpg" alt="GIS Project 2022" class="slide-image">
+                <img src="portfolio-images/2023-01.jpg" alt="GIS Data 2023" class="slide-image">
+                <img src="portfolio-images/2025-02.jpg" alt="GIS Work 2025" class="slide-image">
+                <img src="portfolio-images/pipe-info.jpg" alt="Pipeline Information" class="slide-image">
+                <img src="portfolio-images/argo-operation.jpg" alt="ARGO Operation" class="slide-image">
+                <img src="portfolio-images/utv-operation.jpg" alt="UTV Operation" class="slide-image">
+            </div>
+            <div class="geometric-overlay"></div>
+        </div>
+        
         <div class="overlay">
             <h1>TepoMos</h1>
             <p>GIS Portfolio</p>
@@ -54,9 +70,7 @@
         </div>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r150/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.150.0/examples/js/controls/OrbitControls.js"></script>
-    <script src="globe.js"></script>
     <script src="projects.js"></script>
+    <script src="background-animation.js"></script>
 </body>
 </html>
