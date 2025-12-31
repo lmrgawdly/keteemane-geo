@@ -3,7 +3,7 @@ body, html {
     padding: 0;
     height: 100%;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 50%, #0d0d0d 100%);
+    background: #000000;
     color: #ffffff;
     overflow: hidden;
 }
@@ -11,11 +11,12 @@ body, html {
 .container {
     position: relative;
     width: 100%;
-    height: 100%;
+    height: 100vh;
+    min-height: 100vh;
 }
 
-/* Animated Background */
-.animated-background {
+/* Terrain Background */
+.terrain-background {
     position: absolute;
     top: 0;
     left: 0;
@@ -25,67 +26,99 @@ body, html {
     overflow: hidden;
 }
 
-.image-slideshow {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
-.slide-image {
-    position: absolute;
-    top: 0;
-    left: 0;
+.terrain-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: 0;
-    transition: opacity 2s ease-in-out, transform 8s ease-in-out;
-    transform: scale(1.1);
+    opacity: 0.3;
+    filter: brightness(0.8) contrast(1.2);
 }
 
-.slide-image.active {
-    opacity: 0.4;
-    transform: scale(1);
-}
-
-.geometric-overlay {
+/* Professional Image Gallery */
+.image-gallery {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: 
-        linear-gradient(45deg, transparent 48%, rgba(255, 255, 255, 0.03) 50%, transparent 52%),
-        linear-gradient(-45deg, transparent 48%, rgba(255, 255, 255, 0.03) 50%, transparent 52%),
-        linear-gradient(90deg, transparent 48%, rgba(255, 255, 255, 0.02) 50%, transparent 52%),
-        linear-gradient(0deg, transparent 48%, rgba(255, 255, 255, 0.02) 50%, transparent 52%);
-    background-size: 100px 100px, 100px 100px, 50px 50px, 50px 50px;
-    animation: geometricMove 20s linear infinite;
+    z-index: 2;
     pointer-events: none;
 }
 
-@keyframes geometricMove {
-    0% {
-        background-position: 0 0, 0 0, 0 0, 0 0;
-        transform: translate(0, 0);
+.gallery-item {
+    position: absolute;
+    width: 180px;
+    height: 120px;
+    border-radius: 8px;
+    overflow: hidden;
+    opacity: 0;
+    transform: scale(0.8) rotate(0deg);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: all;
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    animation: fadeInScale 0.8s ease-out forwards;
+    animation-delay: var(--delay);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.gallery-item .image-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+    color: #ffffff;
+    padding: 8px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+    filter: brightness(1.1);
+}
+
+.gallery-item:hover .image-caption {
+    opacity: 1;
+}
+
+.gallery-item:hover {
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px rgba(255, 255, 255, 0.1);
+    z-index: 10;
+}
+
+/* Gallery Item Positions */
+.gallery-item:nth-child(1) { top: 10%; left: 5%; }
+.gallery-item:nth-child(2) { top: 15%; right: 8%; }
+.gallery-item:nth-child(3) { top: 35%; left: 12%; }
+.gallery-item:nth-child(4) { top: 40%; right: 15%; }
+.gallery-item:nth-child(5) { top: 60%; left: 8%; }
+.gallery-item:nth-child(6) { top: 65%; right: 10%; }
+.gallery-item:nth-child(7) { top: 80%; left: 15%; }
+.gallery-item:nth-child(8) { top: 25%; left: 45%; }
+.gallery-item:nth-child(9) { top: 55%; right: 45%; }
+.gallery-item:nth-child(10) { top: 75%; left: 40%; }
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.8) rotate(-5deg);
     }
-    25% {
-        background-position: 25px 25px, -25px -25px, 50px 0, 0 50px;
-        transform: translate(-10px, -10px);
-    }
-    50% {
-        background-position: 50px 50px, -50px -50px, 0 0, 0 0;
-        transform: translate(0, 0);
-    }
-    75% {
-        background-position: 25px 75px, -25px 25px, -50px 0, 0 -50px;
-        transform: translate(10px, -10px);
-    }
-    100% {
-        background-position: 0 0, 0 0, 0 0, 0 0;
-        transform: translate(0, 0);
+    to {
+        opacity: 0.8;
+        transform: scale(1) rotate(0deg);
     }
 }
 
