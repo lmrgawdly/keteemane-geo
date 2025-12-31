@@ -3,12 +3,7 @@ let rotationDirection = 1;
 let rotationAngle = 0;
 
 function init() {
-    // Check if THREE.js is loaded
-    if (typeof THREE === 'undefined') {
-        console.error('THREE.js is not loaded. Waiting for it to load...');
-        setTimeout(init, 100);
-        return;
-    }
+    console.log('Initializing globe...');
     
     // Add loading state to canvas
     const canvas = document.getElementById('globeCanvas');
