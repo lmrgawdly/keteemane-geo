@@ -8,47 +8,35 @@
 </head>
 <body>
     <div class="container">
-        <!-- Professional Image Gallery -->
-        <div class="image-gallery">
-            <div class="gallery-item" style="--delay: 0s;">
-                <img src="portfolio-images/2023-02.jpg" alt="GIS Analysis 2023">
-                <div class="image-caption">Spatial Analysis</div>
+        <!-- Image Slideshow -->
+        <div class="slideshow-container">
+            <div class="slideshow">
+                <img src="portfolio-images/2023-02.jpg" alt="GIS Analysis 2023" class="slide active">
+                <img src="portfolio-images/2025-01.jpg" alt="GIS Work 2025" class="slide">
+                <img src="portfolio-images/2024-01.png" alt="GIS Work 2024" class="slide">
+                <img src="portfolio-images/2023-03.jpg" alt="GIS Mapping 2023" class="slide">
+                <img src="portfolio-images/2022-01.jpg" alt="GIS Project 2022" class="slide">
+                <img src="portfolio-images/2023-01.jpg" alt="GIS Data 2023" class="slide">
+                <img src="portfolio-images/2025-02.jpg" alt="GIS Work 2025" class="slide">
+                <img src="portfolio-images/pipe-info.jpg" alt="Pipeline Information" class="slide">
+                <img src="portfolio-images/argo-operation.jpg" alt="ARGO Operation" class="slide">
+                <img src="portfolio-images/utv-operation.jpg" alt="UTV Operation" class="slide">
             </div>
-            <div class="gallery-item" style="--delay: 1s;">
-                <img src="portfolio-images/2025-01.jpg" alt="GIS Work 2025">
-                <div class="image-caption">2025 Analysis</div>
+            <div class="slide-info">
+                <h3 id="slide-title">Spatial Analysis</h3>
+                <p id="slide-description">Advanced GIS spatial analysis and mapping techniques</p>
             </div>
-            <div class="gallery-item" style="--delay: 2s;">
-                <img src="portfolio-images/2024-01.png" alt="GIS Work 2024">
-                <div class="image-caption">2024 Mapping</div>
-            </div>
-            <div class="gallery-item" style="--delay: 3s;">
-                <img src="portfolio-images/2023-03.jpg" alt="GIS Mapping 2023">
-                <div class="image-caption">Cartography</div>
-            </div>
-            <div class="gallery-item" style="--delay: 4s;">
-                <img src="portfolio-images/2022-01.jpg" alt="GIS Project 2022">
-                <div class="image-caption">2022 Project</div>
-            </div>
-            <div class="gallery-item" style="--delay: 5s;">
-                <img src="portfolio-images/2023-01.jpg" alt="GIS Data 2023">
-                <div class="image-caption">Data Processing</div>
-            </div>
-            <div class="gallery-item" style="--delay: 6s;">
-                <img src="portfolio-images/2025-02.jpg" alt="GIS Work 2025">
-                <div class="image-caption">Recent Work</div>
-            </div>
-            <div class="gallery-item" style="--delay: 7s;">
-                <img src="portfolio-images/pipe-info.jpg" alt="Pipeline Information">
-                <div class="image-caption">Pipeline GIS</div>
-            </div>
-            <div class="gallery-item" style="--delay: 8s;">
-                <img src="portfolio-images/argo-operation.jpg" alt="ARGO Operation">
-                <div class="image-caption">Field Operations</div>
-            </div>
-            <div class="gallery-item" style="--delay: 9s;">
-                <img src="portfolio-images/utv-operation.jpg" alt="UTV Operation">
-                <div class="image-caption">Mobile Mapping</div>
+            <div class="slideshow-dots">
+                <span class="dot active" data-slide="0"></span>
+                <span class="dot" data-slide="1"></span>
+                <span class="dot" data-slide="2"></span>
+                <span class="dot" data-slide="3"></span>
+                <span class="dot" data-slide="4"></span>
+                <span class="dot" data-slide="5"></span>
+                <span class="dot" data-slide="6"></span>
+                <span class="dot" data-slide="7"></span>
+                <span class="dot" data-slide="8"></span>
+                <span class="dot" data-slide="9"></span>
             </div>
         </div>
         
@@ -97,7 +85,7 @@
         </div>
     </div>
 
-    <script src="projects.js?v=4"></script>
-    <script src="gallery-animation.js?v=4"></script>
+    <script src="projects.js?v=5"></script>
+    <script src="slideshow-animation.js?v=5"></script>
 </body>
 </html>
