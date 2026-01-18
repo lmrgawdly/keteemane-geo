@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Visual Projects and Field Images</title>
+  <link rel="stylesheet" href="style_compact.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="container">
+
+  <h1>VISUAL PROJECTS <span>AND FIELD IMAGES</span></h1>
+
+  <!-- Timeline Container -->
+  <div class="timeline">
+
+    <!-- ===== 2025 ===== -->
+    <section class="year-section">
+      <div class="year-header">
+        <div class="year-label">2025</div>
+        <p class="year-desc">Spatial data visualization, web mapping, and prototyping</p>
+      </div>
+
+      <div class="projects">
+        <div class="card left" onclick="openModal('2025-01')">
+          <img src="images/2025-01-tn.png" alt="Interactive GPS Route Animation">
+          <span class="link-icon">↗</span>
+          <div class="caption">Interactive GPS Route Animation</div>
+        </div>
+
+        <div class="card right">
+          <img src="images/2025-02.jpg" alt="Field instrumentation setup">
+          <div class="caption">Field instrumentation setup</div>
+        </div>
+
+        <div class="card center">
+          <img src="images/2025-03.png" alt="Dynamic map interface">
+          <span class="link-icon">↗</span>
+          <div class="caption">Dynamic map interface</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 2024 ===== -->
+    <section class="year-section">
+      <div class="year-header">
+        <div class="year-label">2024</div>
+        <p class="year-desc">Map application development and geospatial analysis</p>
+      </div>
+
+      <div class="projects">
+        <div class="card left">
+          <img src="images/2024-01.png" alt="Geospatial data dashboard">
+          <span class="link-icon">↗</span>
+          <div class="caption">Geospatial data dashboard</div>
+        </div>
+
+        <div class="card right">
+          <img src="images/2024-02-tn.png" alt="Urban coverage analysis">
+          <span class="link-icon">↗</span>
+          <div class="caption">Urban coverage analysis</div>
+        </div>
+
+        <div class="card center">
+          <img src="images/2024-03-tn.png" alt="Land use visualization">
+          <span class="link-icon">↗</span>
+          <div class="caption">Land use visualization</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 2023 ===== -->
+    <section class="year-section">
+      <div class="year-header">
+        <div class="year-label">2023</div>
+        <p class="year-desc">Field surveying, infrastructure documentation, and environmental data collection</p>
+      </div>
+
+      <div class="projects">
+        <div class="card left">
+          <img src="images/2023-01.jpg" alt="Pipeline surveying">
+          <div class="caption">Pipeline surveying</div>
+        </div>
+
+        <div class="card right">
+          <img src="images/2023-02.jpg" alt="Site inspections">
+          <div class="caption">Site inspections</div>
+        </div>
+
+        <div class="card center">
+          <img src="images/2023-03.jpg" alt="Soil moisture sampling">
+          <div class="caption">Soil moisture sampling</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 2022 ===== -->
+    <section class="year-section">
+      <div class="year-header">
+        <div class="year-label">2022</div>
+        <p class="year-desc">Topographic surveys, soil sampling, and site assessments</p>
+      </div>
+
+      <div class="projects">
+        <div class="card left">
+          <img src="images/2022-01.jpg" alt="Topographic survey">
+          <div class="caption">Topographic survey</div>
+        </div>
+
+        <div class="card right">
+          <img src="images/2022-02.jpg" alt="Soil moisture sampling">
+          <div class="caption">Soil moisture sampling</div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+</div>
+
+<!-- Modal for Full Image View -->
+<div class="modal" id="imageModal">
+  <div class="modal-content">
+    <button class="modal-close" onclick="closeModal()">&times;</button>
+    <div class="modal-body">
+      <img id="modalImage" src="" alt="">
+      <div class="modal-caption">
+        <h3 id="modalTitle"></h3>
+        <p id="modalDescription"></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="script_compact.js"></script>
+</body>
+</html>

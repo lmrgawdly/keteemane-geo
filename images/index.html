@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TepoMos - Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #0f0f0f;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.95;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .pdf-container {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 50px rgba(102, 126, 234, 0.3);
+            transform: translateZ(0);
+            will-change: scroll-position;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .pdf-embed {
+            width: 100%;
+            height: 90vh;
+            border: none;
+            display: block;
+            transform: translateZ(0);
+            -webkit-transform: translateZ(0);
+            will-change: contents;
+        }
+
+        .fallback {
+            display: none;
+            text-align: center;
+            padding: 60px 20px;
+            background: #1a1a1a;
+            border-radius: 12px;
+        }
+
+        .fallback h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+        }
+
+        .fallback a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .pdf-embed {
+                height: 80vh;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="pdf-container">
+            <iframe 
+                class="pdf-embed" 
+                src="portfolio.pdf.pdf#toolbar=0&navpanes=0&scrollbar=1&zoom=page-width" 
+                type="application/pdf"
+                loading="lazy">
+            </iframe>
+        </div>
+
+        <div class="fallback">
+            <h2>PDF Viewer Not Supported</h2>
+            <p>Your browser doesn't support embedded PDFs. <a href="portfolio.pdf.pdf" target="_blank">Click here to view the portfolio.</a></p>
+        </div>
+    </div>
+
+    <script>
+        // Simple fallback detection
+        const iframe = document.querySelector('.pdf-embed');
+        const fallback = document.querySelector('.fallback');
+        
+        iframe.onerror = function() {
+            document.querySelector('.pdf-container').style.display = 'none';
+            fallback.style.display = 'block';
+        };
+    </script>
+</body>
+</html>

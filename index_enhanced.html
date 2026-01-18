@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Enhanced Visual Projects Portfolio</title>
+  <link rel="stylesheet" href="style_enhanced.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+<!-- Navigation Header -->
+<header class="header">
+  <nav class="nav">
+    <div class="nav-brand">
+      <h1>DATA IN MOTION</h1>
+    </div>
+    <div class="nav-menu">
+      <button class="filter-btn active" data-filter="all">All Projects</button>
+      <button class="filter-btn" data-filter="visualization">Visualizations</button>
+      <button class="filter-btn" data-filter="field">Field Work</button>
+      <button class="filter-btn" data-filter="mapping">Mapping</button>
+    </div>
+    <div class="nav-actions">
+      <button class="theme-toggle" id="themeToggle">
+        <i class="fas fa-moon"></i>
+      </button>
+      <button class="search-toggle" id="searchToggle">
+        <i class="fas fa-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<!-- Search Bar -->
+<div class="search-container" id="searchContainer">
+  <input type="text" class="search-input" id="searchInput" placeholder="Search projects...">
+  <button class="search-close" id="searchClose">
+    <i class="fas fa-times"></i>
+  </button>
+</div>
+
+<!-- Main Container -->
+<div class="container">
+
+  <!-- Projects Grid -->
+  <main class="projects-grid" id="projectsGrid">
+
+    <!-- 2025 Projects -->
+    <section class="year-section" data-year="2025">
+      <div class="year-header">
+        <h2 class="year-title">2025</h2>
+        <p class="year-description">Spatial data visualization, web mapping, and prototyping</p>
+      </div>
+      
+      <div class="projects">
+        <article class="project-card" data-category="visualization interactive" data-tags="interactive animation gps">
+          <div class="project-image">
+            <img src="images/2025-01.bmp" alt="Interactive GPS Route Animation" loading="lazy">
+            <div class="project-overlay">
+              <button class="project-view" data-project="gps-animation">
+                <i class="fas fa-expand"></i>
+              </button>
+              <a href="#" class="project-link">
+                <i class="fas fa-external-link-alt"></i>
+              </a>
+            </div>
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Interactive GPS Route Animation</h3>
+            <p class="project-description">Real-time GPS tracking visualization with animated route display and interactive controls.</p>
+            <div class="project-meta">
+              <span class="project-date">January 2025</span>
+              <span class="project-type">Interactive</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card" data-category="field" data-tags="field instrumentation setup">
+          <div class="project-image">
+            <img src="images/2025-02.jpg" alt="Field instrumentation setup" loading="lazy">
+            <div class="project-overlay">
+              <button class="project-view" data-project="field-setup">
+                <i class="fas fa-expand"></i>
+              </button>
+            </div>
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Field Instrumentation Setup</h3>
+            <p class="project-description">Complete field station configuration with GPS, sensors, and data collection equipment.</p>
+            <div class="project-meta">
+              <span class="project-date">February 2025</span>
+              <span class="project-type">Field Work</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card" data-category="mapping interactive" data-tags="interactive mapping dynamic">
+          <div class="project-image">
+            <img src="images/2025-03.png" alt="Dynamic map interface" loading="lazy">
+            <div class="project-overlay">
+              <button class="project-view" data-project="dynamic-map">
+                <i class="fas fa-expand"></i>
+              </button>
+              <a href="#" class="project-link">
+                <i class="fas fa-external-link-alt"></i>
+              </a>
+            </div>
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Dynamic Map Interface</h3>
+            <p class="project-description">Interactive web mapping application with real-time data updates and custom layers.</p>
+            <div class="project-meta">
+              <span class="project-date">March 2025</span>
+              <span class="project-type">Mapping</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 2024 Projects -->
+    <section class="year-section" data-year="2024">
+      <div class="year-header">
+        <h2 class="year-title">2024</h2>
+        <p class="year-description">Map application development and geospatial analysis</p>
+      </div>
+      
+      <div class="projects">
+        <article class="project-card" data-category="visualization dashboard" data-tags="dashboard geospatial data">
+          <div class="project-image">
+            <img src="images/2024-01.png" alt="Geospatial data dashboard" loading="lazy">
+            <div class="project-overlay">
+              <button class="project-view" data-project="geospatial-dashboard">
+                <i class="fas fa-expand"></i>
+              </button>
+              <a href="#" class="project-link">
+                <i class="fas fa-external-link-alt"></i>
+              </a>
+            </div>
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Geospatial Data Dashboard</h3>
+            <p class="project-description">Comprehensive dashboard for visualizing and analyzing spatial data with interactive charts.</p>
+            <div class="project-meta">
+              <span class="project-date">Q1 2024</span>
+              <span class="project-type">Dashboard</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card" data-category="analysis" data-tags="analysis urban coverage">
+          <div class="project-image">
+            <img src="images/2024-02.jpg" alt="Urban coverage analysis" loading="lazy">
+            <div class="project-overlay">
+              <button class="project-view" data-project="urban-analysis">
+                <i class="fas fa-expand"></i>
+              </button>
+              <a href="#" class="project-link">
+                <i class="fas fa-external-link-alt"></i>
+              </a>
+            </div>
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Urban Coverage Analysis</h3>
+            <p class="project-description">Spatial analysis of urban infrastructure coverage and service area mapping.</p>
+            <div class="project-meta">
+              <span class="project-date">Q2 2024</span>
+              <span class="project-type">Analysis</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card" data-category="visualization" data-tags="visualization land use">
+          <div class="project-image">
+            <img src="images/2024-03.jpg" alt="Land use visualization" loading="lazy">
+            <div class="project-overlay">
+              <button class="project-view" data-project="land-use">
+                <i class="fas fa-expand"></i>
+              </button>
+              <a href="#" class="project-link">
+                <i class="fas fa-external-link-alt"></i>
+              </a>
+            </div>
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Land Use Visualization</h3>
+            <p class="project-description">Interactive visualization of land use patterns and spatial distribution analysis.</p>
+            <div class="project-meta">
+              <span class="project-date">Q3 2024</span>
+              <span class="project-type">Visualization</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 2023 Projects -->
+    <section class="year-section" data-year="2023">
+      <div class="year-header">
+        <h2 class="year-title">2023</h2>
+        <p class="year-description">Field surveying, infrastructure documentation, and environmental data collection</p>
+      </div>
+      
+      <div class="projects">
+        <article class="project-card" data-category="field surveying" data-tags="surveying pipeline">
+          <div class="project-image">
+            <img src="images/2023-01.jpg" alt="Pipeline surveying" loading="lazy">
+            <div class="project-overlay">
+              <button class="project-view" data-project="pipeline-survey">
+                <i class="fas fa-expand"></i>
+              </button>
+            </div>
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Pipeline Surveying</h3>
+            <p class="project-description">Comprehensive pipeline route surveying with GPS mapping and documentation.</p>
+            <div class="project-meta">
+              <span class="project-date">Spring 2023</span>
+              <span class="project-type">Surveying</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card" data-category="field" data-tags="field inspection site">
+          <div class="project-image">
+            <img src="images/2023-02.jpg" alt="Site inspections" loading="lazy">
+            <div class="project-overlay">
+              <button class="project-view" data-project="site-inspection">
+                <i class="fas fa-expand"></i>
+              </button>
+            </div>
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Site Inspections</h3>
+            <p class="project-description">Detailed site inspections with photographic documentation and assessment reports.</p>
+            <div class="project-meta">
+              <span class="project-date">Summer 2023</span>
+              <span class="project-type">Field Work</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card" data-category="field" data-tags="field soil moisture">
+          <div class="project-image">
+            <img src="images/2023-03.jpg" alt="Soil moisture sampling" loading="lazy">
+            <div class="project-overlay">
+              <button class="project-view" data-project="soil-sampling">
+                <i class="fas fa-expand"></i>
+              </button>
+            </div>
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Soil Moisture Sampling</h3>
+            <p class="project-description">Environmental data collection with soil moisture analysis and mapping.</p>
+            <div class="project-meta">
+              <span class="project-date">Fall 2023</span>
+              <span class="project-type">Field Work</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 2022 Projects -->
+    <section class="year-section" data-year="2022">
+      <div class="year-header">
+        <h2 class="year-title">2022</h2>
+        <p class="year-description">Topographic surveys, soil sampling, and site assessments</p>
+      </div>
+      
+      <div class="projects">
+        <article class="project-card" data-category="surveying" data-tags="surveying topographic">
+          <div class="project-image">
+            <img src="images/2022-01.jpg" alt="Topographic survey" loading="lazy">
+            <div class="project-overlay">
+              <button class="project-view" data-project="topographic-survey">
+                <i class="fas fa-expand"></i>
+              </button>
+            </div>
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Topographic Survey</h3>
+            <p class="project-description">Detailed topographic mapping with elevation data and contour generation.</p>
+            <div class="project-meta">
+              <span class="project-date">2022</span>
+              <span class="project-type">Surveying</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card" data-category="field" data-tags="field soil analysis">
+          <div class="project-image">
+            <img src="images/2022-02.jpg" alt="Soil moisture sampling" loading="lazy">
+            <div class="project-overlay">
+              <button class="project-view" data-project="soil-analysis">
+                <i class="fas fa-expand"></i>
+              </button>
+            </div>
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Soil Analysis</h3>
+            <p class="project-description">Comprehensive soil sampling and analysis for environmental assessment.</p>
+            <div class="project-meta">
+              <span class="project-date">2022</span>
+              <span class="project-type">Field Work</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Load More Button -->
+  <div class="load-more-container">
+    <button class="load-more-btn" id="loadMoreBtn">
+      <span>Load More Projects</span>
+      <i class="fas fa-arrow-down"></i>
+    </button>
+  </div>
+
+</div>
+
+<!-- Modal for Project Details -->
+<div class="modal" id="projectModal">
+  <div class="modal-content">
+    <button class="modal-close" id="modalClose">
+      <i class="fas fa-times"></i>
+    </button>
+    <div class="modal-body" id="modalBody">
+      <!-- Project details will be loaded here -->
+    </div>
+  </div>
+</div>
+
+<!-- Back to Top Button -->
+<button class="back-to-top" id="backToTop">
+  <i class="fas fa-arrow-up"></i>
+</button>
+
+<script src="script_enhanced.js"></script>
+</body>
+</html>

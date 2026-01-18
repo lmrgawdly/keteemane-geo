@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio Demo - Enhanced vs Original</title>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #1a1a1a, #0e0e0e);
+      color: #e6e6e6;
+      margin: 0;
+      padding: 2rem;
+      line-height: 1.6;
+    }
+    
+    .demo-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    h1 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 3rem;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .comparison {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+    
+    .version-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 2rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .version-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+    
+    .version-card h2 {
+      color: #8fc7e8;
+      margin-bottom: 1rem;
+    }
+    
+    .version-card.original h2 {
+      color: #888;
+    }
+    
+    .feature-list {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .feature-list li {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .feature-list li:last-child {
+      border-bottom: none;
+    }
+    
+    .feature-list li::before {
+      content: "✓";
+      color: #4caf50;
+      font-weight: bold;
+      margin-right: 0.5rem;
+    }
+    
+    .btn {
+      display: inline-block;
+      padding: 1rem 2rem;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      text-decoration: none;
+      border-radius: 25px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      margin: 0.5rem;
+      font-weight: 600;
+    }
+    
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+    }
+    
+    .btn.secondary {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .btn.secondary:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+    
+    .actions {
+      text-align: center;
+      margin-top: 2rem;
+    }
+    
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+    
+    .stat {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 1rem;
+      border-radius: 8px;
+      text-align: center;
+    }
+    
+    .stat-number {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #8fc7e8;
+    }
+    
+    .stat-label {
+      font-size: 0.9rem;
+      color: #888;
+    }
+    
+    @media (max-width: 768px) {
+      .comparison {
+        grid-template-columns: 1fr;
+      }
+      
+      h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="demo-container">
+    <h1>Portfolio Enhancement Demo</h1>
+    
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-number">4</div>
+        <div class="stat-label">New Files</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">15+</div>
+        <div class="stat-label">New Features</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">100%</div>
+        <div class="stat-label">Responsive</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">60fps</div>
+        <div class="stat-label">Animations</div>
+      </div>
+    </div>
+    
+    <div class="comparison">
+      <div class="version-card original">
+        <h2>📄 Original Portfolio</h2>
+        <ul class="feature-list">
+          <li>Basic HTML structure</li>
+          <li>Simple CSS styling</li>
+          <li>Static project display</li>
+          <li>Year-based organization</li>
+          <li>Basic image grid</li>
+        </ul>
+        <div class="actions">
+          <a href="index.html" class="btn secondary">View Original</a>
+        </div>
+      </div>
+      
+      <div class="version-card enhanced">
+        <h2>✨ Enhanced Portfolio</h2>
+        <ul class="feature-list">
+          <li>Interactive filtering system</li>
+          <li>Real-time search functionality</li>
+          <li>Dark/Light theme toggle</li>
+          <li>Modal project details</li>
+          <li>Smooth animations</li>
+          <li>Keyboard navigation</li>
+          <li>Responsive design</li>
+          <li>Performance optimized</li>
+          <li>Accessibility features</li>
+          <li>Service worker support</li>
+        </ul>
+        <div class="actions">
+          <a href="index_enhanced.html" class="btn">View Enhanced</a>
+        </div>
+      </div>
+    </div>
+    
+    <div style="text-align: center; margin-top: 3rem;">
+      <h3 style="color: #8fc7e8; margin-bottom: 1rem;">Key Improvements</h3>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; max-width: 800px; margin: 0 auto;">
+        <div style="background: rgba(143, 199, 232, 0.1); padding: 1rem; border-radius: 8px;">
+          <strong>🎨 Modern Design</strong><br>
+          Professional gradients and animations
+        </div>
+        <div style="background: rgba(143, 199, 232, 0.1); padding: 1rem; border-radius: 8px;">
+          <strong>🔍 Advanced Search</strong><br>
+          Real-time filtering and search
+        </div>
+        <div style="background: rgba(143, 199, 232, 0.1); padding: 1rem; border-radius: 8px;">
+          <strong>📱 Mobile Ready</strong><br>
+          Fully responsive design
+        </div>
+        <div style="background: rgba(143, 199, 232, 0.1); padding: 1rem; border-radius: 8px;">
+          <strong>⚡ Performance</strong><br>
+          Optimized for speed
+        </div>
+      </div>
+    </div>
+    
+    <div style="text-align: center; margin-top: 3rem; padding: 2rem; background: rgba(255, 255, 255, 0.05); border-radius: 12px;">
+      <h3 style="color: #8fc7e8; margin-bottom: 1rem;">Technical Stack</h3>
+      <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-bottom: 1rem;">
+        <span>📱 HTML5</span>
+        <span>🎨 CSS3</span>
+        <span>⚡ JavaScript ES6+</span>
+        <span>🔧 Service Worker</span>
+        <span>📊 Intersection Observer</span>
+      </div>
+      <p style="color: #888; font-size: 0.9rem;">
+        Built with modern web standards and best practices
+      </p>
+    </div>
+  </div>
+</body>
+</html>
