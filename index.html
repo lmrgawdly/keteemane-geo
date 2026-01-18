@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <title>TepoMos - Portfolio</title>
     <style>
         * {
@@ -47,6 +47,9 @@
             transform: translateZ(0);
             -webkit-transform: translateZ(0);
             will-change: contents;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            touch-action: pan-y;
         }
 
         .fallback {
@@ -69,8 +72,49 @@
         }
 
         @media (max-width: 768px) {
+            .container {
+                padding: 0;
+                margin: 0;
+                max-width: 100%;
+            }
+
+            .pdf-container {
+                border-radius: 0;
+                box-shadow: none;
+                height: 100vh;
+            }
+
             .pdf-embed {
-                height: 80vh;
+                height: 100vh;
+                height: 100dvh; /* Dynamic viewport height for mobile */
+            }
+
+            .fallback {
+                padding: 40px 20px;
+                border-radius: 0;
+            }
+
+            .fallback h2 {
+                font-size: 1.5em;
+            }
+
+            .fallback p {
+                font-size: 0.9em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .pdf-embed {
+                height: 100vh;
+                height: 100dvh;
+            }
+        }
+
+        /* Landscape mobile optimization */
+        @media (max-width: 768px) and (orientation: landscape) {
+            .pdf-embed {
+                height: 100vh;
+                height: 100dvh;
             }
         }
     </style>
@@ -80,9 +124,11 @@
         <div class="pdf-container">
             <iframe 
                 class="pdf-embed" 
+                id="pdfFrame"
                 src="images/portfolio1.pdf#toolbar=0&navpanes=0&scrollbar=1&zoom=page-width" 
                 type="application/pdf"
-                loading="lazy">
+                loading="lazy"
+                allow="fullscreen">
             </iframe>
         </div>
 
@@ -93,14 +139,34 @@
     </div>
 
     <script>
-        // Simple fallback detection
-        const iframe = document.querySelector('.pdf-embed');
+        // Mobile detection and optimization
+        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        const isSmallScreen = window.innerWidth <= 768;
+        const iframe = document.getElementById('pdfFrame');
         const fallback = document.querySelector('.fallback');
         
+        // Optimize PDF URL for mobile
+        if (isMobile || isSmallScreen) {
+            // Enable toolbar on mobile for better navigation
+            const pdfUrl = 'images/portfolio1.pdf#toolbar=1&navpanes=0&scrollbar=1&zoom=page-fit';
+            iframe.src = pdfUrl;
+        }
+        
+        // Fallback detection
         iframe.onerror = function() {
             document.querySelector('.pdf-container').style.display = 'none';
             fallback.style.display = 'block';
         };
+        
+        // Prevent zoom on double-tap (mobile)
+        let lastTouchEnd = 0;
+        document.addEventListener('touchend', function(event) {
+            const now = Date.now();
+            if (now - lastTouchEnd <= 300) {
+                event.preventDefault();
+            }
+            lastTouchEnd = now;
+        }, false);
     </script>
 </body>
 </html>
