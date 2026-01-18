@@ -15,6 +15,11 @@ desktop.ini
 *.log
 *.cache
 
-# Large media files (if needed)
-# *.mp4
-# *.mov
+# Large media files
+*.tif
+*.tiff
+*.mp4
+*.mov
+
+# Large PDFs (over 50MB)
+# portfolio.pdf.pdf
