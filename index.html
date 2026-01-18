@@ -1,129 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Visual Projects and Field Images</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>TepoMos - Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #0f0f0f;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .pdf-container {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 50px rgba(102, 126, 234, 0.3);
+            transform: translateZ(0);
+            will-change: scroll-position;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .pdf-embed {
+            width: 100%;
+            height: 90vh;
+            border: none;
+            display: block;
+            transform: translateZ(0);
+            -webkit-transform: translateZ(0);
+            will-change: contents;
+        }
+
+        .fallback {
+            display: none;
+            text-align: center;
+            padding: 60px 20px;
+            background: #1a1a1a;
+            border-radius: 12px;
+        }
+
+        .fallback h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+        }
+
+        .fallback a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .pdf-embed {
+                height: 80vh;
+            }
+        }
+    </style>
 </head>
 <body>
-
-<div class="container">
-
-  <h1>VISUAL PROJECTS <span>AND FIELD IMAGES</span></h1>
-
-  <!-- ===== 2025 ===== -->
-  <section class="year-block">
-    <div class="year-label">2025</div>
-
-    <div class="year-content">
-      <p class="year-desc">
-        Spatial data visualization, web mapping, and prototyping
-      </p>
-
-      <div class="grid">
-        <a href="#" class="card">
-          <img src="images/2025-01.jpg" alt="Interactive GPS Route Animation">
-          <span class="link-icon">↗</span>
-          <div class="caption">Interactive GPS Route Animation</div>
-        </a>
-
-        <div class="card">
-          <img src="images/2025-02.jpg" alt="Field instrumentation setup">
-          <div class="caption">Field instrumentation setup</div>
+    <div class="container">
+        <div class="pdf-container">
+            <iframe 
+                class="pdf-embed" 
+                src="images/portfolio1.pdf#toolbar=0&navpanes=0&scrollbar=1&zoom=page-width" 
+                type="application/pdf"
+                loading="lazy">
+            </iframe>
         </div>
 
-        <a href="#" class="card">
-          <img src="images/2025-03.png" alt="Dynamic map interface">
-          <span class="link-icon">↗</span>
-          <div class="caption">Dynamic map interface</div>
-        </a>
-      </div>
+        <div class="fallback">
+            <h2>PDF Viewer Not Supported</h2>
+            <p>Your browser doesn't support embedded PDFs. <a href="images/portfolio1.pdf" target="_blank">Click here to view the portfolio.</a></p>
+        </div>
     </div>
-  </section>
 
-  <!-- ===== 2024 ===== -->
-  <section class="year-block">
-    <div class="year-label">2024</div>
-
-    <div class="year-content">
-      <p class="year-desc">
-        Map application development and geospatial analysis
-      </p>
-
-      <div class="grid">
-        <a href="#" class="card">
-          <img src="images/2024-01.png" alt="Geospatial data dashboard">
-          <span class="link-icon">↗</span>
-          <div class="caption">Geospatial data dashboard</div>
-        </a>
-
-        <a href="#" class="card">
-          <img src="images/2024-02.jpg" alt="Urban coverage analysis">
-          <span class="link-icon">↗</span>
-          <div class="caption">Urban coverage analysis</div>
-        </a>
-
-        <a href="#" class="card">
-          <img src="images/2024-03.jpg" alt="Spatial Analysis">
-          <span class="link-icon">↗</span>
-          <div class="caption">Land use visualization</div>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== 2023 ===== -->
-  <section class="year-block">
-    <div class="year-label">2023</div>
-
-    <div class="year-content">
-      <p class="year-desc">
-        Field surveying, infrastructure documentation, and environmental data collection
-      </p>
-
-      <div class="grid">
-        <div class="card">
-          <img src="images/2023-01.jpg" alt="Pipeline surveying">
-          <div class="caption">Pipeline surveying</div>
-        </div>
-
-        <div class="card">
-          <img src="images/2023-02.jpg" alt="Pipeline surveying">
-          <div class="caption">Site inspections</div>
-        </div>
-
-        <div class="card">
-          <img src="images/2023-03.jpg" alt="Soil moisture sampling">
-          <div class="caption">Soil moisture sampling</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== 2022 ===== -->
-  <section class="year-block">
-    <div class="year-label">2022</div>
-
-    <div class="year-content">
-      <p class="year-desc">
-        Topographic surveys, soil sampling, and site assessments
-      </p>
-
-      <div class="grid">
-        <div class="card">
-          <img src="images/2022-01.jpg" alt="Topographic survey">
-          <div class="caption">Topographic survey</div>
-        </div>
-
-        <div class="card">
-          <img src="images/2022-02.jpg" alt="Soil moisture sampling">
-          <div class="caption">Soil moisture sampling</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-</div>
-
+    <script>
+        // Simple fallback detection
+        const iframe = document.querySelector('.pdf-embed');
+        const fallback = document.querySelector('.fallback');
+        
+        iframe.onerror = function() {
+            document.querySelector('.pdf-container').style.display = 'none';
+            fallback.style.display = 'block';
+        };
+    </script>
 </body>
 </html>
